@@ -1,0 +1,13 @@
+# Python virtual environments
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local data and caches
+data/
+__pycache__/
+
+# macOS
+.DS_Store
