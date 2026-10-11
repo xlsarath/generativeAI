@@ -17,6 +17,7 @@ The exercises start from course material. The derivations, baselines, significan
 | 4 | [Create a BERT sentiment classifier](4-create-a-bert-sentiment-classifier.ipynb) | Course Exercise 2. What a classifier is (risk, Bayes classifier, surrogate losses), DistilBERT's math and parameter count, a frozen backbone with a trained head, probing |
 | 4.1 | [Full fine-tuning BERT](4.1-full-fine-tuning-bert.ipynb) | Course Exercise 3. Updating every weight on SMS spam; baselines, evaluation under class imbalance, McNemar's test, what fine-tuning changes inside the model |
 | 4.2 | [Linear probe vs full fine-tuning vs LoRA](4.2-linear-probe-vs-full-fine-tuning-vs-lora.ipynb) | My follow-up to both. One controlled experiment over five adaptation regimes and three seeds, with LoRA implemented from scratch |
+| 5 | [Lightweight fine-tuning with PEFT](5-lightweight-fine-tuning-with-peft.ipynb) | Course project. GPT-2 turned into a news topic classifier with LoRA through the Hugging Face `peft` library; save, reload and merge the adapter; a rank sweep |
 
 The notebooks build on each other. The softmax from 1 is the classifier output in 4. The MLP derived by hand in 2.1 is the classification head in 4. The freeze-and-train-a-head recipe from 3.1 is repeated for text in 4, removed in 4.1, and compared against its alternatives in 4.2.
 
@@ -52,7 +53,13 @@ LoRA matched full fine-tuning with 1.1% of the parameters. Making the head on a 
 
 ![Accuracy against trained parameters for each regime, and training cost](assets/4.2-accuracy-vs-parameters.png)
 
-Each notebook ends with a section on how the same pattern is used in production (classifier probes at Anthropic, BERT in Google Search and Bing, spam filtering in Gmail, content moderation at Meta and OpenAI, embeddings from Netflix's recommendation foundation model), with references, and a limitations section saying what the experiment does not show.
+### 4. With a library adapter, rank barely matters and 1 MB is enough
+
+Notebook 5 repeats the idea on GPT-2 with the `peft` library and a four-class news task. Training 0.24% of the weights takes accuracy from 27% (untrained head) to 89%, and the saved adapter is 1.15 MB against 475 MB for the full model. A rank sweep shows a rank-1 adapter already captures most of the gain over a head-only baseline. ([notebook 5](5-lightweight-fine-tuning-with-peft.ipynb))
+
+![Accuracy against LoRA rank for GPT-2 on AG News](assets/5-rank-sweep.png)
+
+Notebooks 4 to 4.2 each end with a section on how the same pattern is used in production (classifier probes at Anthropic, BERT in Google Search and Bing, spam filtering in Gmail, content moderation at Meta and OpenAI, embeddings from Netflix's recommendation foundation model), with references, and a limitations section saying what the experiment does not show.
 
 ## Running the notebooks
 
@@ -64,7 +71,7 @@ python3.13 -m venv .venv
 .venv/bin/jupyter lab
 ```
 
-Notebooks 4 to 4.2 each run in a few minutes on a laptop. Datasets and model weights download from the Hugging Face Hub on first use. Training checkpoints are written to `data/`, which is ignored by git.
+Notebooks 4 to 5 each run in a few minutes on a laptop. Datasets and model weights download from the Hugging Face Hub on first use. Training checkpoints are written to `data/`, which is ignored by git.
 
 Notes for current library versions:
 
@@ -77,5 +84,4 @@ Notes for current library versions:
 
 - LP-FT (probe first, then fine-tune) with out-of-distribution evaluation
 - Data-efficiency curves for each adaptation regime
-- A rank sweep for LoRA
 - The same from-scratch LoRA applied to a generative model, connecting back to notebook 1
