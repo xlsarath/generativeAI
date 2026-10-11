@@ -14,9 +14,9 @@ The exercises start from course material. The derivations, baselines, significan
 | 2.2 | [Sentiment analysis with a transformer](2.2-sentimentAnalysis-transfromer.ipynb) | WordPiece tokens and an off-the-shelf DistilBERT sentiment model on IMDB |
 | 3 | [PyTorch and Hugging Face scavenger hunt](3-pytorch-and-hugging-face-scavenger-huntscavenger-hunt.ipynb) | Tensors, `torch.nn`, losses, optimizers, the training loop, models and datasets from the Hub |
 | 3.1 | [Transfer learning using MobileNetV3](3.1-transfer-learning-using-mobilenetv3.ipynb) | Freezing a vision backbone and training a new head; depthwise-separable convolutions and squeeze-and-excitation |
-| 4 | [Create a BERT sentiment classifier](4-create-a-bert-sentiment-classifier.ipynb) | What a classifier is (risk, Bayes classifier, surrogate losses), DistilBERT's math and parameter count, a frozen backbone with a trained head, probing |
-| 4.1 | [Full fine-tuning BERT](4.1-full-fine-tuning-bert.ipynb) | Updating every weight on SMS spam; baselines, evaluation under class imbalance, McNemar's test, what fine-tuning changes inside the model |
-| 4.2 | [Linear probe vs full fine-tuning vs LoRA](4.2-linear-probe-vs-full-fine-tuning-vs-lora.ipynb) | One controlled experiment over five adaptation regimes and three seeds, with LoRA implemented from scratch |
+| 4 | [Create a BERT sentiment classifier](4-create-a-bert-sentiment-classifier.ipynb) | Course Exercise 2. What a classifier is (risk, Bayes classifier, surrogate losses), DistilBERT's math and parameter count, a frozen backbone with a trained head, probing |
+| 4.1 | [Full fine-tuning BERT](4.1-full-fine-tuning-bert.ipynb) | Course Exercise 3. Updating every weight on SMS spam; baselines, evaluation under class imbalance, McNemar's test, what fine-tuning changes inside the model |
+| 4.2 | [Linear probe vs full fine-tuning vs LoRA](4.2-linear-probe-vs-full-fine-tuning-vs-lora.ipynb) | My follow-up to both. One controlled experiment over five adaptation regimes and three seeds, with LoRA implemented from scratch |
 
 The notebooks build on each other. The softmax from 1 is the classifier output in 4. The MLP derived by hand in 2.1 is the classification head in 4. The freeze-and-train-a-head recipe from 3.1 is repeated for text in 4, removed in 4.1, and compared against its alternatives in 4.2.
 
