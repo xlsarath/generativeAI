@@ -19,6 +19,10 @@ The exercises start from course material. The derivations, baselines, significan
 | 4.2 | [Linear probe vs full fine-tuning vs LoRA](4.2-linear-probe-vs-full-fine-tuning-vs-lora.ipynb) | My follow-up to both. One controlled experiment over five adaptation regimes and three seeds, with LoRA implemented from scratch |
 | 5 | [Lightweight fine-tuning with PEFT](5-lightweight-fine-tuning-with-peft.ipynb) | Course project. GPT-2 turned into a news topic classifier with LoRA through the Hugging Face `peft` library; save, reload and merge the adapter; a rank sweep |
 
+From notebook 4 onwards, every calculation is written out one step at a time, and the main ones also have a short animation of the same steps (made with Manim), for example the LoRA parameter count:
+
+![Counting LoRA parameters on GPT-2, step by step](assets/5-lora-parameter-count.gif)
+
 The notebooks build on each other. The softmax from 1 is the classifier output in 4. The MLP derived by hand in 2.1 is the classification head in 4. The freeze-and-train-a-head recipe from 3.1 is repeated for text in 4, removed in 4.1, and compared against its alternatives in 4.2.
 
 ## Adapting a pre-trained transformer: what I found
