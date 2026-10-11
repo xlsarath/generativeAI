@@ -71,7 +71,7 @@ Notes for current library versions:
 - Hub ids need a namespace, for example `stanfordnlp/imdb` and `distilbert/distilbert-base-uncased`.
 - `TrainingArguments(evaluation_strategy=...)` is now `eval_strategy`, and `Trainer(tokenizer=...)` is now `processing_class`.
 - On MPS, DistilBERT needs `attn_implementation="eager"` for training, because the fused attention kernel does not support dropout there.
-- Notebook 2 uses `torchviz`, which additionally needs the Graphviz system package.
+- Notebook 2 draws its network with `torchviz`, which needs the Graphviz renderer on the system: `brew install graphviz` on macOS.
 
 ## What comes next
 

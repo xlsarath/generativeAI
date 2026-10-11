@@ -9,5 +9,7 @@ pandas==3.0.6
 scikit-learn==1.9.1
 scipy==1.18.1
 torch==2.14.1
+torchaudio==2.11.0
 torchvision==0.29.1
+torchviz==0.0.3
 transformers==5.19.0
