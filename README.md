@@ -59,7 +59,7 @@ LoRA matched full fine-tuning with 1.1% of the parameters. Making the head on a 
 
 ### 4. With a library adapter, rank barely matters and 1 MB is enough
 
-Notebook 5 repeats the idea on GPT-2 with the `peft` library and a four-class news task. Training 0.24% of the weights takes accuracy from 27% (untrained head) to 89%, and the saved adapter is 1.15 MB against 475 MB for the full model. A rank sweep shows a rank-1 adapter already captures most of the gain over a head-only baseline. ([notebook 5](5-lightweight-fine-tuning-with-peft.ipynb))
+Notebook 5 repeats the idea on GPT-2 with the `peft` library and a four-class news task. Training 0.24% of the weights takes accuracy from 27% (untrained head) to 89%, and the saved adapter is 1.15 MB against 475 MB for the full model. A rank sweep shows a rank-1 adapter already captures most of the gain over a head-only baseline. QLoRA, with GPT-2 held in 4 bits on the laptop GPU, matched that accuracy in 191 MB of memory instead of 475 MB. ([notebook 5](5-lightweight-fine-tuning-with-peft.ipynb))
 
 ![Accuracy against LoRA rank for GPT-2 on AG News](assets/5-rank-sweep.png)
 
