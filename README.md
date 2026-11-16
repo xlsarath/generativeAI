@@ -18,6 +18,8 @@ The exercises start from course material. The derivations, baselines, significan
 | 4.1 | [Full fine-tuning BERT](4.1-full-fine-tuning-bert.ipynb) | Course Exercise 3. Updating every weight on SMS spam; baselines, evaluation under class imbalance, McNemar's test, what fine-tuning changes inside the model |
 | 4.2 | [Linear probe vs full fine-tuning vs LoRA](4.2-linear-probe-vs-full-fine-tuning-vs-lora.ipynb) | My follow-up to both. One controlled experiment over five adaptation regimes and three seeds, with LoRA implemented from scratch |
 | 5 | [Lightweight fine-tuning with PEFT](5-lightweight-fine-tuning-with-peft.ipynb) | Course project. GPT-2 turned into a news topic classifier with LoRA through the Hugging Face `peft` library; save, reload and merge the adapter; a rank sweep |
+| 6 | [Prompts, decoding parameters and synthetic data](6-prompts-decoding-and-synthetic-data.ipynb) | $P(Y\mid X,\theta)$ and the chain rule checked on GPT-2; temperature, top-k, top-p, min-p and the penalties derived, implemented in NumPy and matched to Hugging Face; the "being, binge" degeneration loop; synthetic data for SFT and preference training |
+| 6.1 | [Chain of thought and response triggers](6.1-chain-of-thought-and-response-triggers.ipynb) | Course demo, fixed and completed. Answer-first vs reasoning-first vs CoT trigger on Qwen 2 1.5B, scored by code on 20 random variants: the CoT trigger sets the problem up right in 10/20 (none without it), yet no prompt gets the arithmetic right |
 
 From notebook 4 onwards, every calculation is written out one step at a time, and the main ones also have a short animation of the same steps (made with Manim), for example the LoRA parameter count:
 
